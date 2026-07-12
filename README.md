@@ -1,0 +1,2 @@
+# infiniTensor_2026_summer
+2026夏季infiniTensor训练营
