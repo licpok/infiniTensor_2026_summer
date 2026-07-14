@@ -42,5 +42,22 @@ int main() {
     // 同步CPU与GPU
     cudaDeviceSynchronize();
 
+    /*
+    线程计算：
+
+    一维：
+    Id = blockIdx.x * blockDim.x + threadIdx.x
+
+    二维：
+    blockId = blockIdx.x + blockIdx.y * gridDim.x
+    threadId = threadIdx.x + threadIdx.y * blockDim.x
+    Id = blockId * (blockDim.x + blockDim.y) + threadId
+
+    三维：
+    blockId = blockIdx.x + blockIdx.y * gridDim.x + blockIdx.z * (gridDim.x * gridDim.y)
+    threadId = threadIdx.x + threadIdx.y * blockDim.x + threadIdx.z * (blockDim.x * blockDim.y)
+    Id = blockId * (blockDim.x * blockDim.y * blockDim.z) + threadId
+    */
+
     return 0;
 }
