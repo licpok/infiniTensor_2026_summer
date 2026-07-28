@@ -25,3 +25,11 @@ void setGPU() {
         printf("set GPU 0 for computing.\n");
     }
 }
+
+cudaError_t ErrorCheck(cudaError_t error, const char* file, int line) {
+    if (error != cudaSuccess) {
+        printf("CUDA Error: %s in %s at line %d\n", cudaGetErrorString(error), file, line);
+        exit(EXIT_FAILURE);
+    }
+    return error;
+}
